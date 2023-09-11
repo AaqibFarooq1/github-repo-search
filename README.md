@@ -1,24 +1,14 @@
-# README
+# Github Repo Search
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+Github Repo Search is nice and simple tool that does what it says on the tin. It queries the Github Search API and shows the top 30 results for public Github repositories.
 
-Things you may want to cover:
+## </a>Gems used
+- httparty (For easily making API calls)
+- sass-rails (Probably didnt need this but I like nesting CSS where applicable)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Most notable files
+- [Styling: app/assets/stylesheets/repositories.scss](https://github.com/AaqibFarooq1/github-repo-search/blob/main/app/assets/stylesheets/repositories.scss)
+- [View: app/views/repositories/index.html.erb](https://github.com/AaqibFarooq1/github-repo-search/blob/main/app/views/repositories/index.html.erb)
+- [Controller: app/controllers/repositories_controller.rb](https://github.com/AaqibFarooq1/github-repo-search/blob/main/app/controllers/repositories_controller.rb)
+- [Testing: test/controllers/repositories_controller_test.rb](https://github.com/AaqibFarooq1/github-repo-search/blob/main/test/controllers/repositories_controller_test.rb)
