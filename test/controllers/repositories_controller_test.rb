@@ -1,25 +1,20 @@
 require "test_helper"
 
 class RepositoriesControllerTest < ActionDispatch::IntegrationTest
-  test 'should return a success response' do
-    get :index
+  test 'should return a success response for valid search' do
+    get repo_search_path, params: { search: 'rails' }
     assert_response :success
   end
 
-  test 'should render the index template' do
-    get :index
-    assert_template :index
+  test 'should display no repositories message when no results found' do
+    get repo_search_path, params: { search: 'repo_that_probably_doesnt_exist' }
+    assert_response :success
+    assert_select 'h1', text: 'No repositories to show'
   end
 
-  test 'should populate the repositories variable with search results' do
-    get :index, params: { search: 'rails' }
-    repositories = assigns(:repositories)
-
-    assert_kind_of Array, repositories
-    assert_not_empty repositories
-    assert repositories.first.is_a?(Hash)
-    assert repositories.first.key?(:name)
-    assert repositories.first.key?(:owner)
-    assert repositories.first.key?(:description)
+  test 'should display search results when repositories are found' do
+    get repo_search_path, params: { search: 'rails' }
+    assert_response :success
+    assert_select '.search_result', minimum: 1
   end
 end
