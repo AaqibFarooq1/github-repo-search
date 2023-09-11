@@ -4,3 +4,18 @@
   <%= f.label :search, 'Search Github Repositories:' %>
   <%= f.text_field :search, placeholder: 'Find a repository...' %>
 <% end %>
+
+<hr>
+
+<% if @repositories.present? %>
+  <h2>Search Results</h2>
+  <ul>
+    <% @repositories['items'].each do |result| %>
+      <li>
+        <strong>Name:</strong> <%= result['name'] %><br>
+        <strong>Owner:</strong> <%= result['owner']['login'] %><br>
+        <strong>Description:</strong> <%= result['description'] %><br>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
