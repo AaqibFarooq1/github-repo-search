@@ -20,6 +20,7 @@
     <% else %>
 
       <h1>Search Results (<%= @repositories['total_count'] %> repos)</h1>
+      <h5>Intentionally limited to top 30 results</h5>
 
       <% @repositories['items'].each do |result| %>
         <div class="search_result">
