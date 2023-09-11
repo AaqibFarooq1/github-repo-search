@@ -1,0 +1,6 @@
+<h1>Github Repo Search</h1>
+
+<%= form_with(url: repo_search_path, method: :get) do |f| %>
+  <%= f.label :search, 'Search Github Repositories:' %>
+  <%= f.text_field :search, placeholder: 'Find a repository...' %>
+<% end %>
