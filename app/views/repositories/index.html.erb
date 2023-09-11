@@ -19,7 +19,7 @@
       <div class="centerize"><h1>No repositories to show</h1></div>
     <% else %>
 
-      <h1>Search Results (<%= @repositories['total_count'] %> repos)</h1>
+      <h1>Search Results for <u><%= @search_term %></u> (<%= @repositories['total_count'] %> repos)</h1>
       <h5>Intentionally limited to top 30 results</h5>
 
       <% @repositories['items'].each do |result| %>

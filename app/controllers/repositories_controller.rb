@@ -3,7 +3,8 @@ class RepositoriesController < ApplicationController
 
   def repo_search
     url = 'https://api.github.com/search/repositories'
-    query_params = { q: search_params }
+    @search_term = search_params
+    query_params = { q: @search_term }
     response = HTTParty.get(url, query: query_params)
 
     unless response.code == 200
